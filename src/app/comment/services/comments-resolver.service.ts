@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {CommentModel} from "../models/CommentModel";
+import {CommentModel} from "../../../models/CommentModel";
 import {Observable} from "rxjs";
-import {PostService} from "./post.service";
+import {PostService} from "../../post/services/post.service";
 import {CommentService} from "./comment.service";
 
 @Injectable({
