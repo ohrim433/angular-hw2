@@ -1,5 +1,12 @@
 <div>
-  {{user.name}}
-  {{user.email}}
-  {{user.website}}
+  <h3>{{user.id}} {{user.name}}</h3>
+  <div>{{user.email}} {{user.website}}</div>
+  <button (click)="navigate(user)">show posts</button>
+  <hr>
+
+<!--  <a routerLink="{{user.id}}/posts"></a>-->
+<!--  <a [routerLink]="[user.id, 'posts']"></a>-->
 </div>
+
+<!--this is for posts of current user-->
+<router-outlet></router-outlet>

@@ -1,1 +1,5 @@
-<app-post *ngFor="let singlePost of posts" [post]="singlePost"></app-post>
+<router-outlet></router-outlet>
+<div *ngFor="let singlePost of posts">
+  <app-post
+    [post]="singlePost"></app-post>
+</div>

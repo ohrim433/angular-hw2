@@ -11,7 +11,13 @@ export class CommentsListComponent implements OnInit {
   comments: CommentModel[];
 
   constructor(private activatedRoute: ActivatedRoute) {
-    this.comments = this.activatedRoute.snapshot.data.allComments;
+    // all comments from resolver
+    // this.comments = this.activatedRoute.snapshot.data.allComments;
+
+    // comments of single post by postId
+    this.activatedRoute.data.subscribe(value =>
+    this.comments = value.comments
+    );
   }
 
   ngOnInit(): void {

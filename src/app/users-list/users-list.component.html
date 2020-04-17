@@ -1,1 +1,5 @@
-<app-user *ngFor="let singleUser of users" [user]="singleUser"></app-user>
+<div *ngFor="let singleUser of users">
+  <app-user
+    [user]="singleUser"></app-user>
+</div>
+
