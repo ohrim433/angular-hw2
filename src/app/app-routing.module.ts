@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: '',
     component: DefaultComponent},   // app.component.html -> router-outlet
   {path: 'users', loadChildren: () => import('../app/user/user.module').then(module => module.UserModule)},
-  {path: 'posts', loadChildren: () => import('../app/post/post.module').then(module => module.PostModule)} // app.component.html -> router-outlet
+  {path: 'posts', loadChildren: () => import('../app/post/post.module').then(module => module.PostModule)}, // app.component.html -> router-outlet
+  {path: 'comments', loadChildren: () => import('../app/comment/comment.module').then(module => module.CommentModule)} // app.component.html -> router-outlet
 ];
 
 @NgModule({

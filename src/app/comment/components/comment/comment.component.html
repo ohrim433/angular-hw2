@@ -1,7 +1,15 @@
 <div>
-  postId - {{comment.postId}}
-  name - {{comment.name}}
-  email - {{comment.email}}
-  body - {{comment.body}}
+  <div>id - {{comment?.id}}</div>
+  <div>postId - {{comment?.postId}}</div>
+  <div>name - {{comment?.name}}</div>
+  <div>email - {{comment?.email}}</div>
+  <div>body - {{comment?.body}}</div>
+  <button (click)="showPostOfComment(comment)">show post</button>
+  <div>
+    <blockquote>{{post?.id}}</blockquote>
+    <blockquote>{{post?.userId}}</blockquote>
+    <blockquote>{{post?.title}}</blockquote>
+    <blockquote>{{post?.body}}</blockquote>
+  </div>
   <hr>
 </div>

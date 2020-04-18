@@ -26,13 +26,13 @@ export class PostsListComponent implements OnInit {
           this.postService.getUsersPosts(value.id).subscribe(
             posts => this.posts = posts
           );
+        } else {
+          this.activatedRoute.data.subscribe(
+            value => {
+              this.posts = value.allPosts;
+            }
+          );
         }
-      }
-    );
-
-    this.activatedRoute.data.subscribe(
-      value => {
-        this.posts = value.allPosts;
       }
     );
   }

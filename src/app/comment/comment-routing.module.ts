@@ -6,9 +6,9 @@ import {PostComponent} from "../post/components/post/post.component";
 
 
 const routes: Routes = [
-  {path: 'comments',
+  {path: '',
     component: CommentsListComponent,
-    resolve: {allComments: CommentResolverService},
+    // resolve: {allComments: CommentResolverService},
     children: [{path: ':id/post', component: PostComponent}]}
 ];
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CommentModel} from '../../../../models/CommentModel';
 import {ActivatedRoute} from '@angular/router';
+import {CommentService} from "../../services/comment.service";
 
 @Component({
   selector: 'app-comments-list',
@@ -10,17 +11,20 @@ import {ActivatedRoute} from '@angular/router';
 export class CommentsListComponent implements OnInit {
   comments: CommentModel[];
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
     // all comments from resolver
     // this.comments = this.activatedRoute.snapshot.data.allComments;
 
     // comments of single post by postId
-    this.activatedRoute.data.subscribe(value =>
-    this.comments = value.comments
-    );
+    // this.activatedRoute.data.subscribe(value =>
+    // this.comments = value.comments
+    // );
   }
 
   ngOnInit(): void {
+    this.commentService.getComments().subscribe(
+      value => this.comments = value
+    );
   }
 
 }
