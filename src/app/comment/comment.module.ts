@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CommentRoutingModule } from './comment-routing.module';
-import {CommentComponent} from "./components/comment/comment.component";
-import {CommentsListComponent} from "./components/comments-list/comments-list.component";
+import {CommentRoutingModule} from './comment-routing.module';
+import {CommentComponent} from './components/comment/comment.component';
+import {CommentsListComponent} from './components/comments-list/comments-list.component';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import {CommentsListComponent} from "./components/comments-list/comments-list.co
     CommentRoutingModule
   ]
 })
-export class CommentModule { }
+export class CommentModule {
+}

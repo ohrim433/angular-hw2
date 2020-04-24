@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostModel} from '../../../../models/PostModel';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
+import {CommentService} from '../../../comment/services/comment.service';
+import {CommentModel} from '../../../../models/CommentModel';
 
 @Component({
   selector: 'app-post',
@@ -10,8 +12,9 @@ import {ActivatedRoute} from "@angular/router";
 export class PostComponent implements OnInit {
   @Input()
   post: PostModel;
+  comments: CommentModel[];
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
     this.activatedRoute.params.subscribe(
       value => value.id
     );
@@ -20,4 +23,9 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showCommentsOfPost(post: PostModel) {
+    this.commentService.getCommentsOfPost(post.id).subscribe(
+      value => this.comments = value
+    );
+  }
 }

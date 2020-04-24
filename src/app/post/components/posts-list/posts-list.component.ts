@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostModel} from '../../../../models/PostModel';
 import {ActivatedRoute} from '@angular/router';
-import {PostService} from "../../services/post.service";
+import {PostService} from '../../services/post.service';
+import {CommentModel} from '../../../../models/CommentModel';
 
 @Component({
   selector: 'app-posts-list',
@@ -10,6 +11,7 @@ import {PostService} from "../../services/post.service";
 })
 export class PostsListComponent implements OnInit {
   posts: PostModel[];
+  comments: CommentModel[];
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
     // try {
@@ -26,10 +28,10 @@ export class PostsListComponent implements OnInit {
           this.postService.getUsersPosts(value.id).subscribe(
             posts => this.posts = posts
           );
-        } else {
+        } else {   // show all posts
           this.activatedRoute.data.subscribe(
-            value => {
-              this.posts = value.allPosts;
+            val => {
+              this.posts = val.allPosts;
             }
           );
         }

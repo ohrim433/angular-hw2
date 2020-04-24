@@ -3,8 +3,15 @@
   <div>post.userId - {{post.userId}}</div>
   <div>post.title - {{post.title}}</div>
   <div>post.body - {{post.body}}</div>
-  <button>
-    <a [routerLink]="[post.id, 'comments']" [queryParams]="{postId: post.id}">show comments</a>
-  </button>
+  <!--  <button>-->
+  <!--    <a [routerLink]="[post.id, 'comments']" [queryParams]="{postId: post.id}">show comments</a>-->
+  <!--  </button>-->
+  <button (click)="showCommentsOfPost(post)">show comments</button>
+  <div *ngFor="let comment of comments">
+    <blockquote>{{comment?.id}}</blockquote>
+    <blockquote>{{comment?.postId}}</blockquote>
+    <blockquote>{{comment?.name}}</blockquote>
+    <blockquote>{{comment?.body}}</blockquote>
+  </div>
   <hr>
 </div>

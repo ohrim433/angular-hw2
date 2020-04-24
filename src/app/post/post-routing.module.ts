@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {PostsListComponent} from "./components/posts-list/posts-list.component";
-import {PostResolverService} from "./services/post-resolver.service";
-import {CommentsListComponent} from "../comment/components/comments-list/comments-list.component";
-import {CommentsResolverService} from "../comment/services/comments-resolver.service";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PostsListComponent} from './components/posts-list/posts-list.component';
+import {PostResolverService} from './services/post-resolver.service';
 
 
 // const routes: Routes = [
@@ -25,20 +23,24 @@ import {CommentsResolverService} from "../comment/services/comments-resolver.ser
 //     ]
 //   }
 
-  const routes: Routes = [
-    {
-      path: ':id/posts',   // /users/100/posts
-      component: PostsListComponent
-    },
-    {
-      path: '',
-      component: PostsListComponent,
-      resolve: {allPosts: PostResolverService}
-    }
+const routes: Routes = [
+  {
+    path: '',
+    component: PostsListComponent,
+    resolve: {allPosts: PostResolverService},
+    children: [
+      // /users
+      {path: '', loadChildren: () => import('../comment/comment.module').then(module => module.CommentModule)}]
+  },
+  {
+    path: ':id/posts',   // /users/100/posts
+    component: PostsListComponent,
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PostRoutingModule { }
+export class PostRoutingModule {
+}

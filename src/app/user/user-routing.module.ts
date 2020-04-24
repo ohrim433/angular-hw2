@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {UsersListComponent} from "./components/users-list/users-list.component";
-import {UserResolverService} from "./services/user-resolver.service";
-import {PostsListComponent} from "../post/components/posts-list/posts-list.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {UsersListComponent} from './components/users-list/users-list.component';
+import {UserResolverService} from './services/user-resolver.service';
 
 
 // const routes: Routes = [
@@ -23,7 +22,8 @@ import {PostsListComponent} from "../post/components/posts-list/posts-list.compo
 
 const routes: Routes = [
   // localhost:4200/users -> UsersList Component
-  {path: '',
+  {
+    path: '',
     component: UsersListComponent, // app.component.html in -> router outlet
     resolve: {allUsers: UserResolverService},
     children: [
@@ -36,4 +36,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class UserRoutingModule {
+}

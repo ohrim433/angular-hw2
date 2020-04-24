@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { UserRoutingModule } from './user-routing.module';
-import {UsersListComponent} from "./components/users-list/users-list.component";
-import {UserComponent} from "./components/user/user.component";
+import {UserRoutingModule} from './user-routing.module';
+import {UsersListComponent} from './components/users-list/users-list.component';
+import {UserComponent} from './components/user/user.component';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import {UserComponent} from "./components/user/user.component";
     UserRoutingModule
   ]
 })
-export class UserModule { }
+export class UserModule {
+}
